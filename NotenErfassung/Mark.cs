@@ -11,7 +11,7 @@ namespace NotenErfassung
     {
         public decimal Value { get; set; }
         public DateTime Date { get; set; }
-
+        public string Firstname { get; set;}
         internal static Mark CreateMark()
         {
             Console.Clear();
