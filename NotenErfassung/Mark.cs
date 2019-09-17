@@ -5,7 +5,7 @@ using System.Text;
 namespace NotenErfassung
 {
     /// <summary>
-    /// Mark
+    /// Neue Klasse Mark 
     /// </summary>
     class Mark
     {
