@@ -13,6 +13,7 @@ namespace NotenErfassung
         public DateTime Date { get; set; }
         public string Name { get; set; }
 
+        public string Firstname { get; set;}
         internal static Mark CreateMark()
         {
             Console.Clear();
