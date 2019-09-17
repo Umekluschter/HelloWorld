@@ -4,6 +4,9 @@ using System.Text;
 
 namespace NotenErfassung
 {
+    /// <summary>
+    /// Subject
+    /// </summary>
     class Subject
     {
         public string name { get; set; }

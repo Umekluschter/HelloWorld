@@ -73,7 +73,7 @@ namespace NotenErfassung
 
         public void SelectSubject()
         {
-            for (int i = 1; i < listOfSubjects.Count + 1; i++)
+            for (int i = 0; i < listOfSubjects.Count; i++)
             {
                 Console.WriteLine($"[{i}] {listOfSubjects[i].name}");
             }
