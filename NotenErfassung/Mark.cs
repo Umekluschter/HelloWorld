@@ -4,6 +4,9 @@ using System.Text;
 
 namespace NotenErfassung
 {
+    /// <summary>
+    /// Mark
+    /// </summary>
     class Mark
     {
         public decimal Value { get; set; }
