@@ -63,7 +63,7 @@ namespace NotenErfassung
             Console.WriteLine("\nTag: ");
             var day = ReadInt(1, 31);
 
-            return new DateTime(year, month, day);
+            return new DateTime(year, month, day, null);
         }
 
 

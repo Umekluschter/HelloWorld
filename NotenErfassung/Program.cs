@@ -73,7 +73,7 @@ namespace NotenErfassung
 
         public void SelectSubject()
         {
-            for (int i = 0; i < listOfSubjects.Count; i++)
+            for (int i = 1; i < listOfSubjects.Count + 1; i++)
             {
                 Console.WriteLine($"[{i}] {listOfSubjects[i].name}");
             }
@@ -119,9 +119,7 @@ namespace NotenErfassung
             Console.WriteLine("-Noten-\n");
             foreach (var mark in Subject.listOfMarks)
             {
-                int i = 0;
                 Console.WriteLine($"{mark.Value}\t{mark.Date}");
-                i++;
             }
             Console.ReadKey();
         }

@@ -4,9 +4,6 @@ using System.Text;
 
 namespace NotenErfassung
 {
-    /// <summary>
-    /// Meine Testklasse
-    /// </summary>
     class Mark
     {
         public decimal Value { get; set; }
@@ -16,7 +13,7 @@ namespace NotenErfassung
         {
             Console.Clear();
             Console.WriteLine("Note eingeben: ");
-            var value = ConsoleHelper.ReadInt(1, 6);
+            var value = ConsoleHelper.ReadDecimal(1, 6);
 
             var date = ConsoleHelper.ReadDate();
 
