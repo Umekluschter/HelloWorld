@@ -23,7 +23,7 @@ namespace NotenErfassung
                 }
                 else
                 {
-                    Console.WriteLine("Keine gültige Zahl!");
+                    Console.WriteLine("Ungültige Zahl!");
                 }
 
             }
@@ -46,13 +46,13 @@ namespace NotenErfassung
                 }
                 else
                 {
-                    Console.WriteLine("Keine gültige Zahl!");
+                    Console.WriteLine("Ungültige Zahl!");
                 }
 
             }
         }
 
-        public static DateTime ReadDate()
+        public static string ReadDate()
         {
             Console.WriteLine("\nJahr: ");
             var year= ReadInt(1900, 2100);
@@ -63,9 +63,7 @@ namespace NotenErfassung
             Console.WriteLine("\nTag: ");
             var day = ReadInt(1, 31);
 
-            return new DateTime(year, month, day);
+            return new DateTime(year, month, day).ToShortDateString();
         }
-
-
     }
 }

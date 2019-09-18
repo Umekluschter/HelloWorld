@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NotenErfassung
 {
     class Program
     {
 
-        private List<Subject> listOfSubjects = new List<Subject>();
+        public static List<Subject> listOfSubjects = new List<Subject>();
+        public int SubjectIndex = 0;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Console.Title = "Notenerfassung";
             new Program().Start();
         }
 
         private void Start()
         {
-
             int a = 1;
 
             while (a == 1)
@@ -24,35 +24,35 @@ namespace NotenErfassung
                 Console.Clear();
                 Console.WriteLine("[1] Create Subject\n[2] Select Subject\n[3] List Subjects\n[4] List Marks\n[0] Exit");
 
-                var input = Console.ReadLine();
+                var input = ConsoleHelper.ReadInt(0, 4);
 
                 switch (input)
                 {
-                    case "1":
+                    case 1:
                         Console.Clear();
                         CreateSubject();
                         Console.Clear();
                         break;
 
-                    case "2":
+                    case 2:
                         Console.Clear();
                         SelectSubject();
                         Console.Clear();
                         break;
 
-                    case "3":
+                    case 3:
                         Console.Clear();
                         ListSubjects();
                         Console.Clear();
                         break;
 
-                    case "4":
+                    case 4:
                         Console.Clear();
                         ListMarks();
                         Console.Clear();
                         break;
 
-                    case "0":
+                    case 0:
                         a = 0;
                         break;
                 }
@@ -75,34 +75,31 @@ namespace NotenErfassung
         {
             for (int i = 0; i < listOfSubjects.Count; i++)
             {
-                Console.WriteLine($"[{i}] {listOfSubjects[i].name}");
+                Console.WriteLine($"[{i+1}] {listOfSubjects[i].name}");
             }
 
-            int index = ConsoleHelper.ReadInt(0, listOfSubjects.Count -1);
+            SubjectIndex = ConsoleHelper.ReadInt(1, listOfSubjects.Count) - 1;
 
             Console.Clear();
 
-            Console.WriteLine($"-{listOfSubjects[index].name}-\n");
+            Console.WriteLine($"-{listOfSubjects[SubjectIndex].name}-\n");
 
             Console.WriteLine("[1] Add Mark\n[2] Edit Mark");
 
             int switchMark = ConsoleHelper.ReadInt(1, 2);
 
-            var selectetSubject = listOfSubjects[index];
+            var selectetSubject = listOfSubjects[SubjectIndex];
 
             switch (switchMark)
             {
                 case 1:
-                    selectetSubject.AddMark();
+                    selectetSubject.AddMark(SubjectIndex);
                     break;
 
                 case 2:
-
+                    selectetSubject.EditMark(SubjectIndex);
                     break;
             }
-            
-            
-
         }
 
         public void ListSubjects()
@@ -116,10 +113,11 @@ namespace NotenErfassung
 
         public static void ListMarks()
         {
-            Console.WriteLine("-Noten-\n");
+            Console.WriteLine("-Alle Noten-\n");
+            Console.WriteLine("Fach\tNote\tDatum\n");
             foreach (var mark in Subject.listOfMarks)
             {
-                Console.WriteLine($"{mark.Value}\t{mark.Date}");
+                Console.WriteLine($"{mark.NameOfSubject}\t{mark.Value}\t{mark.Date}");
             }
             Console.ReadKey();
         }
