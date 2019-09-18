@@ -35,13 +35,13 @@ namespace NotenErfassung
             Console.WriteLine($"-Alle Noten des Faches {Program.listOfSubjects[SubjectIndex].name}-\n");
             Console.WriteLine("Note zum Bearbeiten auswählen");
 
-            int i = 1;
+            int i = 0;
 
             foreach (var mark in Subject.listOfMarks)
             {
                 if (mark.NameOfSubject.Equals(Program.listOfSubjects[SubjectIndex].name))
                 {
-                    Console.WriteLine($"[{i}]\t{mark.Value}\t{mark.Date}");
+                    Console.WriteLine($"[{i+1}]\t{mark.Value}\t{mark.Date}");
                     i++;
                 }
             }
@@ -53,8 +53,6 @@ namespace NotenErfassung
             Console.WriteLine("-Bearbeiten der Note-\n");
 
             Console.WriteLine($"Alt:\n{listOfMarks[MarkIndex].Value}\t{listOfMarks[MarkIndex].Date}");
-
-            Console.WriteLine("Neu:\n");
 
             listOfMarks[MarkIndex] = Mark.CreateMark(SubjectIndex);
         }
