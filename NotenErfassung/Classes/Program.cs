@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NotenErfassung
 {
@@ -48,7 +49,15 @@ namespace NotenErfassung
 
                     case 4:
                         Console.Clear();
-                        ListMarks();
+
+                        Console.WriteLine($"-Alle Noten-\n");
+                        Console.WriteLine("Fach\tNote\tDatum\n");
+
+                        foreach (var subject in listOfSubjects)
+                        {
+                            subject.ListMarks();
+                        }
+                        Console.ReadKey();
                         Console.Clear();
                         break;
 
@@ -88,16 +97,17 @@ namespace NotenErfassung
 
             int switchMark = ConsoleHelper.ReadInt(1, 2);
 
+            //Verweist auf das Fach
             var selectetSubject = listOfSubjects[SubjectIndex];
 
             switch (switchMark)
             {
                 case 1:
-                    selectetSubject.AddMark(SubjectIndex);
+                    selectetSubject.AddMark();
                     break;
 
                 case 2:
-                    selectetSubject.EditMark(SubjectIndex);
+                    selectetSubject.EditMark();
                     break;
             }
         }
@@ -109,17 +119,6 @@ namespace NotenErfassung
                 Console.WriteLine(subject.name);
             }
             Console.ReadKey();
-        }
-
-        public static void ListMarks()
-        {
-            Console.WriteLine("-Alle Noten-\n");
-            Console.WriteLine("Fach\tNote\tDatum\n");
-            foreach (var mark in Subject.listOfMarks)
-            {
-                Console.WriteLine($"{mark.NameOfSubject}\t{mark.Value}\t{mark.Date}");
-            }
-            Console.ReadKey();
-        }
+        }        
     }
 }
